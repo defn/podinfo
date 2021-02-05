@@ -10,6 +10,8 @@ GIT_COMMIT:=$(shell git describe --dirty --always)
 VERSION:=$(shell grep 'VERSION' pkg/version/version.go | awk '{ print $$4 }' | tr -d '"')
 EXTRA_RUN_ARGS?=
 
+.PHONY: test
+
 SHELL := /bin/bash
 
 menu:

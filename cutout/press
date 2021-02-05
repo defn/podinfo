@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+function main {
+  set -exfu
+
+  rm -rf t2
+  cookiecutter  cutout --skip-if-file-exists --no-input --output-dir t2
+  set +f
+  rsync -ia t2/*/*/. .
+  set -f
+  rm -rf t2
+  rm -f .project_org .project_name
+}
+
+main "$@"

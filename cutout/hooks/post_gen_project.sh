@@ -13,6 +13,7 @@ function main {
   mv charts/podinfo "charts/$(cat ../.project_name)" || true
   mv cmd/podinfo "cmd/$(cat ../.project_name)" || true
   popd
+  mkdir -p "$(cat .project_name)"
   rsync -ia static/. "$(cat .project_name)/."
   rm -rf static
   rm -f .project_{org,name}

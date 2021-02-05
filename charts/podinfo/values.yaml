@@ -22,7 +22,7 @@ h2c:
   enabled: false
 
 image:
-  repository: ghcr.io/stefanprodan/podinfo
+  repository: docker.io/defn/podinfo
   tag: 5.1.4
   pullPolicy: IfNotPresent
 

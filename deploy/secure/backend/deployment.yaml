@@ -25,7 +25,7 @@ spec:
       serviceAccountName: secure
       containers:
       - name: backend
-        image: ghcr.io/stefanprodan/podinfo:5.0.3
+        image: docker.io/defn/podinfo:5.0.3
         imagePullPolicy: IfNotPresent
         ports:
         - name: http

@@ -14,10 +14,10 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/stefanprodan/podinfo/pkg/api"
-	"github.com/stefanprodan/podinfo/pkg/grpc"
-	"github.com/stefanprodan/podinfo/pkg/signals"
-	"github.com/stefanprodan/podinfo/pkg/version"
+	"github.com/defn/podinfo/pkg/api"
+	"github.com/defn/podinfo/pkg/grpc"
+	"github.com/defn/podinfo/pkg/signals"
+	"github.com/defn/podinfo/pkg/version"
 )
 
 func main() {
@@ -74,7 +74,7 @@ func main() {
 	viper.RegisterAlias("backendUrl", "backend-url")
 	hostname, _ := os.Hostname()
 	viper.SetDefault("jwt-secret", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9")
-	viper.SetDefault("ui-logo", "https://raw.githubusercontent.com/stefanprodan/podinfo/gh-pages/cuddle_clap.gif")
+	viper.SetDefault("ui-logo", "https://raw.githubusercontent.com/defn/podinfo/gh-pages/cuddle_clap.gif")
 	viper.Set("hostname", hostname)
 	viper.Set("version", version.VERSION)
 	viper.Set("revision", version.REVISION)
@@ -89,8 +89,8 @@ func main() {
 		if readErr := viper.ReadInConfig(); readErr != nil {
 			fmt.Printf("Error reading config file, %v\n", readErr)
 		}
-	}else{
-		fmt.Printf("Error to open config file, %v\n",fileErr)
+	} else {
+		fmt.Printf("Error to open config file, %v\n", fileErr)
 	}
 
 	// configure logging

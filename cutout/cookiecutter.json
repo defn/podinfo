@@ -1,6 +1,6 @@
 {
   "project_org": "defn",
-  "project_name": "poginfo",
+  "project_name": "podinfo",
   "_copy_without_render": [
     "*static"
   ]

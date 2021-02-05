@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+function main {
+  set -exfu
+
+  rm -rf t1 t2
+  mkdir -p t1/defn/podinfo
+  rsync -ia . --exclude cutout --exclude .git --exclude t1 --exclude t2 --exclude cutout t1/defn/podinfo/.
+  cookiecutter  cutout --skip-if-file-exists --no-input --output-dir t2
+  diff -r t1 t2
+  rm -rf t1 t2
+}
+
+main "$@"

@@ -1,0 +1,27 @@
+name: cookecutter
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  cutout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install cookiecutter
+        run: python -m pip install cookiecutter
+      - name: Compare cutout
+        run: ./cutout/test
+      - name: Check if working tree is dirty
+        run: |
+          if [[ $(git diff --stat) != '' ]]; then
+            echo 'run make test and commit changes'
+            exit 1
+          fi

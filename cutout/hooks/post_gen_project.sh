@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function main {
-  set -exfu
+  set -efu
   find static -type f | while read -r f; do 
     if [[ "$(uname -s)" == "Darwin" ]]; then
       sed -i '' "s#defn#$(cat .project_org)#g; s#podinfo#$(cat .project_name)#g" "$f"
@@ -9,6 +9,7 @@ function main {
       sed -i "s#defn#$(cat .project_org)#g; s#podinfo#$(cat .project_name)#g" "$f"
     fi
   done
+  set -x
   pushd static
   mv charts/podinfo "charts/$(cat ../.project_name)" || true
   mv cmd/podinfo "cmd/$(cat ../.project_name)" || true

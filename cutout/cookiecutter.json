@@ -1,0 +1,7 @@
+{
+  "project_org": "defn",
+  "project_name": "poginfo",
+  "_copy_without_render": [
+    "*static"
+  ]
+}

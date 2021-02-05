@@ -12,7 +12,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Compare cookiecutter cutout
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install cookiecutter
+        run: python -m pip install cookiecutter
+      - name: Compare cutout
         run: ./cutout/test
       - name: Check if working tree is dirty
         run: |
